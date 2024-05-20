@@ -24,7 +24,7 @@ function segment() {
         .then(segmentationResult => {
             // add the result of the segmentation to the output area.
             const segmentationOutputArea = document.getElementById("segmentation-output-area");
-            segmentationResult.foreach(function (wordInSegmentation) {
+            segmentationResult.forEach(function (wordInSegmentation) {
                 const spanNeededToWrapWord = document.createElement("span")
                 spanNeededToWrapWord.innerText = wordInSegmentation;
 
