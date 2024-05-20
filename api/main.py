@@ -65,11 +65,13 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
           2) (phonetic (pinyin) representation of the word when the word means this definition) (definition of the word)
           ... and so on until all available definitions are provided
     """
-
+    chinese_word_to_define = chinese_word_to_define.encode("utf-8")
+    
     chinese_english_dictionary = Dictionary()
     dictionary_lookup_result = chinese_english_dictionary.lookup(
         chinese_word_to_define)
 
+    print(chinese_word_to_define)
     print(dir(chinese_english_dictionary))
     print(chinese_english_dictionary.words_dict_simp.get(chinese_word_to_define))
     print(chinese_word_to_define.strip() in chinese_english_dictionary.words_dict_simp)
