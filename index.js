@@ -5,7 +5,7 @@ function segment() {
     /**
      * Segment the inputted Chinese text, then display that segmentation in the output area so the user can begin clicking to look up
      */
-    const chineseInputText = document.getElementById("chinese-input").value;
+    const chineseInputText = document.getElementById("chinese-input-text").value;
 
     // call our custom API to get the segmentation of the text, then display the resulting segmentation in the output area.
     const apiURL = "https://chinese-tools-api.vercel.app";
