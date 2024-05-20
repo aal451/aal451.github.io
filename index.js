@@ -43,7 +43,7 @@ function defineWord(event) {
     /**
      * Retrieve the definition of the word contained in event.target, then display a popup with that definition above the word for the user to see.
      */
-    const wordToDefine = event.target.value;
+    const wordToDefine = event.target.innerText;
 
     // call our custom API to get the definition of the word to define, then display the resulting definition in the click-to-lookup popup.
     const apiURL = "https://chinese-tools-api.vercel.app";
