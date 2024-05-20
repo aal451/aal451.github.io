@@ -55,7 +55,7 @@ async def segment_input_chinese_into_words(text_to_segment: str) -> list[str]:
     return jieba.lcut(text_to_segment)
 
 
-@app.get("/define/{chinese_word_to_define}")
+@app.get("/define/{chinese_word_to_define}", response_class=PlainTextResponse)
 async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
     """
     Given a Chinese word to lookup, return a nicely formatted string representing the definition of the word using definition data from the chinese_english_lookup tool.
