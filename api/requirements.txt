@@ -1,0 +1,4 @@
+uvicorn
+fastapi
+stanza
+chinese_english_lookup
