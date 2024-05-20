@@ -88,8 +88,8 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
 
     definition_string_to_return = (
         "Definition: \n"
-        + "  Simplified:  +" dictionary_lookup_result.simp + "\n"
-        + "  Traditional: +" dictionary_lookup_result.trad + "\n"
+        + "  Simplified:  " + dictionary_lookup_result.simp + "\n"
+        + "  Traditional: " + dictionary_lookup_result.trad + "\n"
         + "  \n"
         + textwrap.indent(dictionary_lookup_result.get_definition_entries_formatted(), '  ')
 
