@@ -63,8 +63,8 @@ function defineWord(event) {
         .then(definitionResult => {
             // generate and attach the definition popup to the element (in this case, event.target) containing the word.
             const definitionPopup = bootstrap.Popover.getOrCreateInstance(event.target.id, {
-                "content": definitionResult,
-                "trigger": 'focus'
+                content: definitionResult,
+                trigger: 'focus'
             });
 
             // show the definition to the user.
