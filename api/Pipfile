@@ -7,7 +7,7 @@ name = "pypi"
 uvicorn = "*"
 fastapi = "*"
 jieba = "*"
-chinese_english_lookup = "*"
+chinese-english-lookup = "*"
 
 [requires]
 python_version = "3.9"
