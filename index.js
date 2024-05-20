@@ -21,13 +21,16 @@ function segment() {
             }
             return response.json()
         })
+        // add the result of the segmentation to the output area.
         .then(segmentationResult => {
-            // add the result of the segmentation to the output area.
+            
             const segmentationOutputArea = document.getElementById("segmentation-output-area");
 
+            // add each word in the segmentation to the output area
             for(let i = 0; i < segmentationResult.length; i++){
+                const wordToAddFromSegmentation = segmentationResult[i];
                 const spanNeededToWrapWord = document.createElement("span");
-                spanNeededToWrapWord.innerText = wordInSegmentation;
+                spanNeededToWrapWord.innerText = wordToAddFromSegmentation;
                 spanNeededToWrapWord.id = 'word-' + i;
                 // attach a listener to each word so that when the word is clicked, we can retrieve and display its definition.
                 spanNeededToWrapWord.addEventListener("click", defineWord);
@@ -47,7 +50,7 @@ function defineWord(event) {
 
     // call our custom API to get the definition of the word to define, then display the resulting definition in the click-to-lookup popup.
     const apiURL = "https://chinese-tools-api.vercel.app";
-    let definitionResult = "";
+
     fetch(apiURL + "/define/" + wordToDefine)
         .then(response => {
             if (!response.ok) {
@@ -64,7 +67,8 @@ function defineWord(event) {
             // generate and attach the definition popup to the element (in this case, event.target) containing the word.
             const definitionPopup = bootstrap.Popover.getOrCreateInstance("#"+event.target.id, {
                 content: definitionResult,
-                trigger: 'focus'
+                trigger: 'focus',
+                placement: 'top'
             });
 
             // show the definition to the user.
