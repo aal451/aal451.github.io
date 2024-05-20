@@ -72,6 +72,7 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
 
     print(dir(chinese_english_dictionary))
     print(chinese_english_dictionary.words_dict_simp.get(chinese_word_to_define))
+    print(chinese_word_to_define.strip() in chinese_english_dictionary.words_dict_simp)
 
     definition_string_to_return = (
         f"Definition: \n"
