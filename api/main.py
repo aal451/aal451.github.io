@@ -51,7 +51,7 @@ async def segment_input_chinese_into_words(text_to_segment: str) -> list[str]:
     """
     # Need to convert the percent encoding the URL passes back into UTF-8, otherwise segmentation will fail.
     text_to_segment = urllib.parse.unquote(text_to_segment)
-    
+
     return jieba.lcut(text_to_segment)
 
 
@@ -87,9 +87,9 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
 
 
     definition_string_to_return = (
-        f"Definition: \n"
-        + "  Simplified:  {dictionary_lookup_result.simp} \n"
-        + "  Traditional: {dictionary_lookup_result.trad} \n"
+        "Definition: \n"
+        + "  Simplified:  +" dictionary_lookup_result.simp + "\n"
+        + "  Traditional: +" dictionary_lookup_result.trad + "\n"
         + "  \n"
         + textwrap.indent(dictionary_lookup_result.get_definition_entries_formatted(), '  ')
 
