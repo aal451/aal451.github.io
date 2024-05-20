@@ -1,4 +1,4 @@
 uvicorn
 fastapi
-stanza
+jieba
 chinese_english_lookup

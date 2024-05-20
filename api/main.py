@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-import stanza
+import jieba
 from chinese_english_lookup import Dictionary
 import textwrap
 
@@ -40,22 +40,7 @@ async def segment_input_chinese_into_words(text_to_segment: str) -> list[str]:
         A list of strings, where each string represents an individual word that made up text_to_segment. Words in the list are in the same order as they appeared in text_to_segment. 
     """
 
-    # initialize the Stanford NLP Group's Stanza, which will perform the segmentation
-    stanza.download("zh", processors="tokenize")
-
-    # initalize the data pipeline that will ingest the text_to_segment
-    input_pipeline = stanza.Pipeline('zh')
-
-    # Input text_to_segment into the pipeline to generate a Stanza Document object, which contains the segmentation.
-    result_document = input_pipeline(text_to_segment)
-
-    # Extract and return the text's segmentation from the Document.
-    segmentation_result = []
-    for sentence in result_document.sentences:
-        for word in sentence.words:
-            segmentation_result.append(word.text)
-
-    return segmentation_result
+    return jieba.lcut(text_to_segment)
 
 
 @app.get("/define/{chinese_word_to_define}")
