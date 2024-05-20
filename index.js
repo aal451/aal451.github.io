@@ -24,15 +24,15 @@ function segment() {
         .then(segmentationResult => {
             // add the result of the segmentation to the output area.
             const segmentationOutputArea = document.getElementById("segmentation-output-area");
-            segmentationResult.forEach(function (wordInSegmentation) {
 
+            for(let i = 0; i < segmentationResult.length; i++){
                 const spanNeededToWrapWord = document.createElement("span");
                 spanNeededToWrapWord.innerText = wordInSegmentation;
-
+                spanNeededToWrapWord.id = 'word-' + i;
                 // attach a listener to each word so that when the word is clicked, we can retrieve and display its definition.
                 spanNeededToWrapWord.addEventListener("click", defineWord);
                 segmentationOutputArea.append(spanNeededToWrapWord);
-            });
+            }
 
             // display the result of the segmentation to the user (output area is hidden in the beginning).
             document.getElementById("output-section").style.visibility = "visible";
