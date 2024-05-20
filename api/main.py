@@ -70,9 +70,7 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
     dictionary_lookup_result = chinese_english_dictionary.lookup(
         chinese_word_to_define)
 
-    print(chinese_word_to_define)
-    print(chinese_english_dictionary)
-    print(dictionary_lookup_result)
+    print(dir(chinese_english_dictionary))
 
     definition_string_to_return = (
         f"Definition: \n"
