@@ -25,9 +25,6 @@ function segment() {
             // add the result of the segmentation to the output area.
             const segmentationOutputArea = document.getElementById("segmentation-output-area");
             segmentationResult.forEach(function (wordInSegmentation) {
-                
-                // words are passed back from API in percent encoding, so convert words back to characters.
-                wordInSegmentation = decodeURIComponent(wordInSegmentation); 
 
                 const spanNeededToWrapWord = document.createElement("span");
                 spanNeededToWrapWord.innerText = wordInSegmentation;
