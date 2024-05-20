@@ -49,7 +49,9 @@ async def segment_input_chinese_into_words(text_to_segment: str) -> list[str]:
     --------
         A list of strings, where each string represents an individual word that made up text_to_segment. Words in the list are in the same order as they appeared in text_to_segment. 
     """
-    print(jieba.lcut(text_to_segment))
+    # Need to convert the percent encoding the URL passes back into UTF-8, otherwise segmentation will fail.
+    text_to_segment = urllib.parse.unquote(text_to_segment)
+    
     return jieba.lcut(text_to_segment)
 
 
