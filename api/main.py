@@ -9,7 +9,7 @@ import urllib
 
 app = FastAPI()
 
-origins = ['https://aal451.github.io/']
+origins = ['https://aal451.github.io']
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
