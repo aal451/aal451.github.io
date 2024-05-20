@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 import jieba
 from chinese_english_lookup import Dictionary
@@ -8,6 +9,14 @@ import urllib
 
 app = FastAPI()
 
+origins = ['https://aal451.github.io/']
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root() -> None:
@@ -66,7 +75,7 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
           2) (phonetic (pinyin) representation of the word when the word means this definition) (definition of the word)
           ... and so on until all available definitions are provided
     """
-    
+
     # Need to convert the percent encoding the URL passes back into UTF-8, otherwise dictionary lookup will fail.
     chinese_word_to_define = urllib.parse.unquote(chinese_word_to_define) 
 
