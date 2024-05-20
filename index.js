@@ -35,7 +35,7 @@ function segment() {
             });
 
             // display the result of the segmentation to the user (output area is hidden in the beginning).
-            document.getElementById("segmentation-output-area").style.visibility = "visible";
+            document.getElementById("output-section").style.visibility = "visible";
         });
 }
 
