@@ -58,7 +58,7 @@ function defineWord(event) {
                     throw new Error("An error occurred while attempting to fetch the segmentation of the input text.")
                 }
             }
-            definitionResult = response.text();
+            return response.text();
         })
         .then(definitionResult => {
             // generate and attach the definition popup to the element (in this case, event.target) containing the word.
