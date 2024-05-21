@@ -97,7 +97,8 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
             # if we can't find the character (very unlikely), leave a note for the user
             if dictionary_lookup_result is None:
                 definition_string_to_return += "Unfortunately, " + character + " could not be found in the dictionary, as it is not in the dictionary. Sorry for the inconvenience!" + "\n\n"
-
+                continue
+                
             definition_string_to_return += (
                 "Definition: \n"
                 + "  Simplified:  " + dictionary_lookup_result.simp + "\n"
