@@ -68,7 +68,8 @@ function defineWord(event) {
             const definitionPopup = bootstrap.Popover.getOrCreateInstance("#"+event.target.id, {
                 content: definitionResult,
                 trigger: 'focus',
-                placement: 'top'
+                placement: 'top',
+                customClass: 'force-whitespace-on-definition'
             });
 
             // show the definition to the user.
