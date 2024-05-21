@@ -29,12 +29,19 @@ function segment() {
             // add each word in the segmentation to the output area
             for(let i = 0; i < segmentationResult.length; i++){
                 const wordToAddFromSegmentation = segmentationResult[i];
-                const spanNeededToWrapWord = document.createElement("span");
-                spanNeededToWrapWord.innerText = wordToAddFromSegmentation;
-                spanNeededToWrapWord.id = 'word-' + i;
+
+                const anchorNeededToWrapWord = document.createElement("a");
+                anchorNeededToWrapWord.innerText = wordToAddFromSegmentation;
+                anchorNeededToWrapWord.id = 'word-' + i;
+
                 // attach a listener to each word so that when the word is clicked, we can retrieve and display its definition.
-                spanNeededToWrapWord.addEventListener("click", defineWord);
-                segmentationOutputArea.append(spanNeededToWrapWord);
+                anchorNeededToWrapWord.addEventListener("click", defineWord);
+
+                // add tabindex so the dismissable popups generated on the tag later will render properly 
+                // reference: https://getbootstrap.com/docs/5.3/components/popovers/#dismiss-on-next-click
+                anchorNeededToWrapWord.tabIndex = 0;
+                
+                segmentationOutputArea.append(anchorNeededToWrapWord);
             }
 
             // display the result of the segmentation to the user (output area is hidden in the beginning).
