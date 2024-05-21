@@ -1,6 +1,9 @@
 const segmentButton = document.getElementById("segment-button");
 segmentButton.addEventListener("click", segment);
 
+const demoButton = document.getElementById("demo-button");
+demoButton.addEventListener("click", triggerDemo);
+
 function segment() {
     /**
      * Segment the inputted Chinese text, then display that segmentation in the output area so the user can begin clicking to look up
@@ -95,3 +98,12 @@ function defineWord(event) {
         });
 }
 
+function triggerDemo(){
+    /**
+     * Populate the input text field with some example text and segment it, providing the user a quick demo of the tool's functionality.
+     */
+
+    const exampleChineseText = "我喜欢吃蛋糕，所以昨天我买了三个蛋糕来吃";
+    document.getElementById("chinese-input-text").value = exampleChineseText;
+    segment();
+}
