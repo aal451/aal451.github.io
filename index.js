@@ -40,7 +40,7 @@ function segment() {
                 // add tabindex so the dismissable popups generated on the tag later will render properly 
                 // reference: https://getbootstrap.com/docs/5.3/components/popovers/#dismiss-on-next-click
                 anchorNeededToWrapWord.tabIndex = 0;
-                
+
                 segmentationOutputArea.append(anchorNeededToWrapWord);
             }
 
@@ -76,7 +76,7 @@ function defineWord(event) {
                 content: definitionResult,
                 trigger: 'focus',
                 placement: 'top',
-                customClass: 'force-whitespace-on-definition'
+                customClass: 'force-whitespace-on-definition override-popup-max-width-constraints'
             });
 
             // show the definition to the user.

@@ -1,0 +1,9 @@
+/* Class to allow us to force the popups to render the spacing/newlines present in the response from the definitions API */
+.force-whitespace-on-definition {
+    white-space: pre;
+}
+
+/* Class to allow us to override the default 276px wide limit on popups, allowing us to have popups resize as wide as needed to accommodate definitions */
+.override-popup-max-width-constraints {
+    max-width: fit-content;
+}
