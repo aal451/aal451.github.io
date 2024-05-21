@@ -9,7 +9,8 @@ function segment() {
 
     // call our custom API to get the segmentation of the text, then display the resulting segmentation in the output area.
     const apiURL = "https://chinese-tools-api.vercel.app";
-    fetch(apiURL + "/segment/" + chineseInputText)
+    // Note: we need to manually encode the characters during the API call to preserve the newlines from the input text so they can appear in the outputted segmentation too.
+    fetch(apiURL + "/segment/" + encodeURIComponent(chineseInputText))
         .then(response => {
             if (!response.ok) {
                 if (response.status === 500) {
