@@ -1,6 +1,5 @@
-# The Chinese Study Tool
 
-## Introduction
+## The Chinese Study Tool
 This is an app designed to massively speed up the studying of Chinese by streamlining the process of finding dictionary definitions of words one does not know.
 
 Try it out at: https://aal451.github.io
@@ -27,6 +26,14 @@ Together, these two conveniences allow you to learn new vocabulary by reading te
     ![alt text](./readmeImages/step1.png)
 
 2. Second, click "Segment!" to generate the segmentation of the text.
-    * For example, our example sentence looks like this after clicking "Segment!"
-    
- 
+    * For example, our example sentence looks like this after clicking "Segment!":
+    ![alt text](./readmeImages/step2.png)
+
+3. Third, click on a word you're interested in learning the definition for to get its definition.
+    * For example, we wanted to know what "我" means, so we clicked it, and we can see the definition:
+    ![alt text](./readmeImages/step3.png)
+
+4. Click anywhere except the word to dismiss the definition popup (even another word!) To look up other words, just click them! Happy learning!
+
+ ## Licensing
+ Please see the license.md file in this repository for licensing details.
