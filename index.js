@@ -79,7 +79,7 @@ function defineWord(event) {
             document.querySelectorAll(".popover").forEach(popover => { popover.remove()});
 
             // generate and attach the definition popup to the element (in this case, event.target) containing the word.
-            const definitionPopup = bootstrap.Popover("#"+event.target.id, {
+            const definitionPopup = new bootstrap.Popover("#"+event.target.id, {
                 content: definitionResult,
                 trigger: 'focus',
                 placement: 'top',
