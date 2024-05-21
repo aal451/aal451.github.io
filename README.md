@@ -24,6 +24,9 @@ Together, these two conveniences allow you to learn new vocabulary by reading te
 1. First, paste some Chinese text you want to read into the Input Text Box:
     * For example: let's say we want to read: 我喜欢吃蛋糕
     * We would paste it in like so:
+    ![alt text](./readmeImages/step1.png)
+
+2. Second, click "Segment!" to generate the segmentation of the text.
+    * For example, our example sentence looks like this after clicking "Segment!"
     
-2.
  
