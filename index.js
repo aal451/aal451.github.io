@@ -26,6 +26,9 @@ function segment() {
             
             const segmentationOutputArea = document.getElementById("segmentation-output-area");
 
+            // remove existing segmentations from the output area if present so we can replace it with this new segmentation.
+            segmentationOutputArea.replaceChildren();
+
             // add each word in the segmentation to the output area
             for(let i = 0; i < segmentationResult.length; i++){
                 const wordToAddFromSegmentation = segmentationResult[i];
