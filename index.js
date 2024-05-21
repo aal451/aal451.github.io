@@ -34,7 +34,7 @@ function segment() {
                 const wordToAddFromSegmentation = segmentationResult[i];
 
                 const anchorNeededToWrapWord = document.createElement("a");
-                anchorNeededToWrapWord.innerText = wordToAddFromSegmentation;
+                anchorNeededToWrapWord.innerText = wordToAddFromSegmentation + "    ";
                 anchorNeededToWrapWord.id = 'word-' + i;
 
                 // attach a listener to each word so that when the word is clicked, we can retrieve and display its definition.
@@ -43,6 +43,9 @@ function segment() {
                 // add tabindex so the dismissable popups generated on the tag later will render properly 
                 // reference: https://getbootstrap.com/docs/5.3/components/popovers/#dismiss-on-next-click
                 anchorNeededToWrapWord.tabIndex = 0;
+
+                // makes sure the "   " separating each word will actually render correctly in the HTML
+                anchorNeededToWrapWord.style.whiteSpace = "pre";
 
                 segmentationOutputArea.append(anchorNeededToWrapWord);
             }
