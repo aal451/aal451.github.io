@@ -77,6 +77,8 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
           1) (phonetic (pinyin) representation of the word when the word means this definition) (definition of the word)
           2) (phonetic (pinyin) representation of the word when the word means this definition) (definition of the word)
           ... and so on until all available definitions are provided
+        
+        Note: if no definition for the word determined by segmentation can be found in the dictionary, we return a string that lists out a definition entry (in the format above) for each character of the word to help the user piece together the word's definition (we let the user know if we can't find a character too).
     """
 
     # Need to convert the percent encoding the URL passes back into UTF-8, otherwise dictionary lookup will fail.
@@ -86,13 +88,33 @@ async def get_definition_of_chinese_word(chinese_word_to_define: str) -> str:
     dictionary_lookup_result = chinese_english_dictionary.lookup(
         chinese_word_to_define)
 
+    # can't find word in the dictionary case
+    if dictionary_lookup_result is None:
+        definition_string_to_return = ""
+        for character in chinese_word_to_define:
+            dictionary_lookup_result = chinese_english_dictionary.lookup(character)
+
+            # if we can't find the character (very unlikely), leave a note for the user
+            if dictionary_lookup_result is None:
+                definition_string_to_return += "Unfortunately, " + character + " could not be found in the dictionary, as it is not in the dictionary. Sorry for the inconvenience!" + "\n\n"
+
+            definition_string_to_return += (
+                "Definition: \n"
+                + "  Simplified:  " + dictionary_lookup_result.simp + "\n"
+                + "  Traditional: " + dictionary_lookup_result.trad + "\n"
+                + "  \n"
+                + textwrap.indent(dictionary_lookup_result.get_definition_entries_formatted(), "  ") + "\n\n"
+            )
+        return definition_string_to_return
+        
+
 
     definition_string_to_return = (
         "Definition: \n"
         + "  Simplified:  " + dictionary_lookup_result.simp + "\n"
         + "  Traditional: " + dictionary_lookup_result.trad + "\n"
         + "  \n"
-        + textwrap.indent(dictionary_lookup_result.get_definition_entries_formatted(), ' ')
+        + textwrap.indent(dictionary_lookup_result.get_definition_entries_formatted(), "  ")
 
     )
 
