@@ -1,5 +1,8 @@
 
-## The Chinese Study Tool
+# The Chinese Study Tool
+**Try out the app here! https://aal451.github.io**
+
+## What is this app?
 This is an app designed to massively speed up the studying of Chinese by streamlining the process of finding dictionary definitions of words one does not know.
 
 Try it out at: https://aal451.github.io
