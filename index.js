@@ -71,8 +71,12 @@ function defineWord(event) {
             return response.text();
         })
         .then(definitionResult => {
+
+            // remove any existing popovers (ensures definition popovers will not overlap, which would be annoying)
+            document.querySelectorAll(".popover").forEach(popover => { popover.remove()});
+
             // generate and attach the definition popup to the element (in this case, event.target) containing the word.
-            const definitionPopup = bootstrap.Popover.getOrCreateInstance("#"+event.target.id, {
+            const definitionPopup = bootstrap.Popover("#"+event.target.id, {
                 content: definitionResult,
                 trigger: 'focus',
                 placement: 'top',
