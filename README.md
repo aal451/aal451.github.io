@@ -4,6 +4,8 @@
 
 Click [here](#how-does-the-tool-work) for a quick tutorial on how to use the app!
 
+To learn about the API behind the app, please see [here](https://github.com/aal451/aal451.github.io/tree/main/api).
+
 ## What is this app?
 This is an app designed to massively speed up the studying of Chinese by streamlining the process of finding dictionary definitions of words one does not know.
 
