@@ -39,7 +39,7 @@ async def root() -> None:
 @app.get("/segment/{text_to_segment}")
 async def segment_input_chinese_into_words(text_to_segment: str) -> list[str]:
     """
-    Given a string of Chinese text, use the Stanford NLP (natural language processing) Group's Stanza NLP library to segment the text into its individual words, returning the resulting segmentation as a list.
+    Given a string of Chinese text, use the jieba library to segment the text into its individual words, returning the resulting segmentation as a list.
 
     Parameters:
     -----------
